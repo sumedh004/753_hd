@@ -13,16 +13,17 @@ pipeline {
             }
         }
 
-        // stage('Code Quality Analysis') {
-        //     steps {
-        //         // Install SonarQube Scanner
-        //         sh 'wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip'
-        //         sh 'unzip sonar-scanner-cli-4.6.2.2472-linux.zip'
 
-        //         // Run code quality analysis
-        //         sh './sonar-scanner-4.6.2.2472-linux/bin/sonar-scanner'
-        //     }
-        // }
+        stage('Code Quality Analysis') {
+            steps {
+
+
+script {
+                    withSonarQubeEnv('SonarQube') {
+                        sh 'sonar-scanner'
+                    }
+            }
+        }
 
         stage('Deploy') {
             steps {
