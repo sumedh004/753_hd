@@ -7,9 +7,9 @@ pipeline {
     
 
                 // Build Docker image
-                sh './gradlew build --no-daemon'
+               // sh './gradlew build --no-daemon'
                 sh 'docker build -t train-schedule:${BUILD_NUMBER} .'
-                archiveArtifacts artifacts: 'dist/trainSchedule.zip'
+               // archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
 
@@ -46,7 +46,7 @@ pipeline {
     post {
         always {
 
-            sh 'docker-compose -f docker-compose.yml down'
+            sh 'docker compose -f docker-compose.yml down'
             sh 'docker container rm $(docker container ls -aq) -f'
 
             // Clean up resources if needed
