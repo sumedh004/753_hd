@@ -1,4 +1,4 @@
-version: '3'
+
 services:
   train:
     image: train-schedule:${BUILD_NUMBER} # Use the build number to tag the image
