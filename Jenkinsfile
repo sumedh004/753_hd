@@ -27,8 +27,7 @@ pipeline {
         stage('Deploy') {
             steps {
      
-     
-
+    
                 // Deploy using Docker Compose
                 sh 'docker-compose -f docker-compose.yml up -d'
             }
