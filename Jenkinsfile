@@ -48,6 +48,7 @@ pipeline {
 
             //sh 'docker compose -f docker-compose.yml down'
             //sh 'docker container rm $(docker container ls -aq) -f'
+            sh 'docker container ls'
 
             // Clean up resources if needed
         }
