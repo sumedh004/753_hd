@@ -23,7 +23,7 @@ stage('SonarQube Analysis') {
                 echo "SonarQube Scanner installation directory: ${scannerHome}"
 
                 // Run SonarQube Scanner
-                withSonarQubeEnv() {
+                withSonarQubeEnv('SonarQube') {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
