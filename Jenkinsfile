@@ -14,17 +14,21 @@ pipeline {
         }
 
 
-        stage('Code Quality Analysis') {
-            steps {
+stage('SonarQube Analysis') {
+        steps {
+            // Execute SonarQube Scanner
+            script {
+                // Get the path to SonarQube Scanner installation directory
+                def scannerHome = tool 'SonarScanner';
+                echo "SonarQube Scanner installation directory: ${scannerHome}"
 
-
-script {
-                    withSonarQubeEnv('SonarQube') {
-                        sh 'sonar-scanner'
-                    }
+                // Run SonarQube Scanner
+                withSonarQubeEnv() {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
             }
         }
-        }
+    }
 
         stage('Deploy') {
             steps {
