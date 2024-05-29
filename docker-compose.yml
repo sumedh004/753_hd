@@ -1,0 +1,7 @@
+version: '3'
+services:
+  train:
+    image: train-schedule:${BUILD_NUMBER} # Use the build number to tag the image
+    ports:
+      - "8080:80" # Map container port 8080 to host port 8080 (adjust as needed)
+
