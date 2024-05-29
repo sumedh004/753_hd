@@ -29,7 +29,7 @@ pipeline {
      
     
                 // Deploy using Docker Compose
-                sh 'docker-compose -f docker-compose.yml up -d'
+                sh 'docker compose -f docker-compose.yml up -d'
             }
         }
 
@@ -46,8 +46,8 @@ pipeline {
     post {
         always {
 
-            sh 'docker compose -f docker-compose.yml down'
-            sh 'docker container rm $(docker container ls -aq) -f'
+            //sh 'docker compose -f docker-compose.yml down'
+            //sh 'docker container rm $(docker container ls -aq) -f'
 
             // Clean up resources if needed
         }
